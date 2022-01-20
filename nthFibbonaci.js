@@ -5,12 +5,11 @@ const fibbonaciMap = {
 };
 
 function getNthFib(n) {
-  if (n == 1) return 0;
-  if (n == 2) return 1;
+  //algoexpert start from index 0
+  if (n == 0) return 0;
+  if (n == 1) return 1;
 
-  console.log("getFib ", n);
   if (n in fibbonaciMap) {
-    console.log("mapped", n);
     return fibbonaciMap[n];
   } else {
     let currentValue = getNthFib(n - 1) + getNthFib(n - 2);
@@ -19,6 +18,20 @@ function getNthFib(n) {
   }
 }
 
-const result = getNthFib(18);
+function getNthFibAlgoexpert(n) {
+  //algoexpert start with 1
+  if (n == 1) return 0;
+  if (n == 2) return 1;
+
+  if (n in fibbonaciMap) {
+    return fibbonaciMap[n];
+  } else {
+    let currentValue = getNthFib(n - 1) + getNthFib(n - 2);
+    fibbonaciMap[n] = currentValue;
+    return currentValue;
+  }
+}
+
+const result = getNthFib(0);
 
 console.log(result);

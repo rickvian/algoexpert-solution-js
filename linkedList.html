@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    class Node {
+      constructor(element) {
+        this.element = element;
+        this.next = null;
+      }
+    }
+
+    class LinkedList {
+      constructor() {
+        this.head = null;
+        this.size = 0;
+      }
+
+      add(element) {
+        let node = new Node(element);
+        let current;
+
+        if (this.head === null) {
+          this.head = node
+        } else {
+          current = this.head; // start
+          while (current.next) {
+            current = current.next;
+          }// loop to the end
+
+          current.next = node; // add end
+        }
+        this.size++;
+
+      }
+    }
+
+
+
+    function constructLinkedList(array) {
+      let linkedList = new LinkedList();
+      for (let i = 0; i < array.length; i++) {
+        linkedList.add(array[i]);
+      }
+      return linkedList
+    }
+
+    let myLinkedList = constructLinkedList([2, 4, 5, 6])
+
+    console.log(myLinkedList)
+  </script>
+</body>
+
+</html>
